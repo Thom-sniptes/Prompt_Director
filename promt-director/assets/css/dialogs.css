@@ -1,0 +1,37 @@
+.pdir-dialog-overlay {
+  --pdir-panel:var(--ts-bg-panel,#101719);--pdir-text:var(--ts-text-primary,#F3F2ED);
+  --pdir-dim:var(--ts-text-secondary,#A2A5A3);--pdir-border:var(--ts-border,#293235);
+  --pdir-accent:var(--ts-accent,#DA2027);
+  position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:rgba(0,0,0,.76);font-family:var(--ts-font-body,'Inter'),sans-serif;color:var(--pdir-text);
+}
+.pdir-dialog-overlay *{box-sizing:border-box}
+.pdir-dialog{width:min(680px,100%);max-height:calc(100dvh - 48px);overflow:auto;margin:0;padding:28px;background:var(--pdir-panel);border:1px solid var(--pdir-border);border-radius:14px;box-shadow:0 20px 80px #0008;color:var(--pdir-text)}
+.pdir-dialog h2{color:var(--pdir-text);font:600 26px/1.2 var(--ts-font-display,'Barlow Condensed'),sans-serif;margin:0 0 16px}
+.pdir-dialog p{color:var(--pdir-dim);font-size:14px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;margin:0 0 16px}
+.pdir-dialog label{display:block;color:var(--pdir-text);font-size:14px;margin:18px 0}
+.pdir-dialog input,.pdir-dialog textarea,.pdir-dialog select{display:block;width:100%;margin:8px 0 0;padding:12px;min-height:44px;border:1px solid var(--pdir-border);border-radius:6px;background:var(--ts-bg-secondary,#091012);color:var(--pdir-text);font:400 14px/1.5 var(--ts-font-body,'Inter'),sans-serif}
+.pdir-dialog textarea{resize:vertical}
+.pdir-dialog option{background:var(--ts-bg-secondary,#091012);color:var(--pdir-text)}
+.pdir-dialog-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:12px;margin-top:24px}
+.pdir-dialog button{border:1px solid var(--pdir-border);border-radius:6px;background:var(--ts-bg-secondary,#091012);color:var(--pdir-text);padding:12px 18px;min-height:44px;font:600 14px/1.4 var(--ts-font-body,'Inter'),sans-serif;cursor:pointer}
+.pdir-dialog button.pdir-dialog-primary{background:var(--pdir-accent);color:#fff;border-color:var(--pdir-accent)}
+.pdir-dialog .pdir-dialog-error{color:#ffaaa7}
+.pdir-dialog :focus-visible{outline:2px solid var(--pdir-text);outline-offset:3px}
+@media(max-width:600px){.pdir-dialog-overlay{padding:12px}.pdir-dialog{padding:20px;max-height:calc(100dvh - 24px)}.pdir-dialog-actions button{flex:1 1 100%}}
+
+/* v1.6.8: diff preview confined to the customer-change dialog */
+.pdir-customer-diff{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;max-width:100%;}
+.pdir-customer-diff-pane{min-width:0;border:1px solid var(--ts-border,#555);padding:12px;background:var(--ts-bg-secondary,#171717);}
+.pdir-customer-diff-pane>strong{display:block;margin-bottom:9px;font-size:13px;}
+.pdir-customer-diff-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.6;max-height:260px;overflow:auto;}
+.pdir-customer-diff mark{color:inherit;border-radius:2px;padding:1px 0;}
+.pdir-customer-diff .pdir-diff-added{background:rgba(31,155,91,.35);border-bottom:1px solid #5edf96;}
+.pdir-customer-diff .pdir-diff-removed{background:rgba(210,64,64,.32);border-bottom:1px solid #ff8585;}
+@media(max-width:680px){.pdir-customer-diff{grid-template-columns:1fr;}}
+
+/* 2.0.0-dev.2: readable dialog compare preview */
+.pdir-dialog-overlay{font-size:14px;line-height:1.55}
+.pdir-customer-diff-pane>strong,.pdir-customer-diff-text{font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+
+.pdir-dialog-overlay small{font-size:13px}
